@@ -81,8 +81,40 @@ export default {
 };
 </script>
 
+
+
 <style>
 .my-border {
   border: 4px groove blue;
+  padding: 20px;
+  background-color: #f9f9f9;
 }
+
+.table {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+
+.card {
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.card-body {
+  padding: 20px;
+  text-decoration: none;
+}
+
+h1 {
+  color: #343a40;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
 </style>
+
