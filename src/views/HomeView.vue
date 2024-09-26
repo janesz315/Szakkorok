@@ -4,23 +4,31 @@
   <div class="container container-fluid my-border">
     <h1>Am I too cute to handle?</h1>
     <div class="col col-6">
-      <table class="table table-bordered border-primary">
+      <table class="table table-bordered border-success table-hover table-striped table-success">
         <thead>
           <tr>
-            
-            <th >Név</th>
-            <th >Osztály</th>
-            <th >Szakkör</th>
+            <th>Név</th>
+            <th>Osztály</th>
+            <th>Szakkör</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
+          <tr v-for="(tanulo, i) in tanulok" :key="i">
+            <td>{{ tanulo.nev }}</td>
+            <td>{{ tanulo.osztaly }}</td>
+            <td>
+              <select
+                class="form-select form-select-sm"
+                aria-label="Small select example"
+              >
+                <option selected>Szakkörök listája</option>
+                <option v-for="(szakkor, ind) in szakkorok" :key="ind">
+                  {{ szakkor.nev }}
+                </option>
+              </select>
+            </td>
+            <!-- v-for="(szakkor, ind) in szakkorok" :key="ind" -->
           </tr>
-          
         </tbody>
       </table>
     </div>
@@ -30,112 +38,127 @@
 </template>
 <script>
 export default {
-  data(){
-    return{
-      tanulok:[
+  data() {
+    return {
+      tanulok: [
         {
-          id:1,
-          nev:"AVE",
+          id: 1,
+          nev: "AVE",
           osztaly: "13d",
-          szakkorId: null
+          szakkorId: null,
         },
         {
-          id:2,
-          nev:"Lexus_DC",
+          id: 2,
+          nev: "Lexus_DC",
           osztaly: "13d",
-          szakkorId: null
+          szakkorId: null,
         },
         {
-          id:3,
-          nev:"Farlix",
+          id: 3,
+          nev: "Farlix",
           osztaly: "13d",
-          szakkorId: null
+          szakkorId: null,
         },
         {
-          id:4,
-          nev:"Amy",
+          id: 4,
+          nev: "Amy",
           osztaly: "13d",
-          szakkorId: null
+          szakkorId: null,
         },
         {
-          id:5,
-          nev:"ItzKat1",
+          id: 5,
+          nev: "ItzKat1",
           osztaly: "13d",
-          szakkorId: null
+          szakkorId: null,
         },
         {
-          id:6,
-          nev:"surix",
+          id: 6,
+          nev: "surix",
           osztaly: "13d",
-          szakkorId: null
+          szakkorId: null,
         },
         {
-          id:7,
-          nev:"Begi",
+          id: 7,
+          nev: "Begi",
           osztaly: "13d",
-          szakkorId: null
+          szakkorId: null,
         },
         {
-          id:8,
-          nev:"SanielShadowX",
+          id: 8,
+          nev: "SanielShadowX",
           osztaly: "13a",
-          szakkorId: null
+          szakkorId: null,
         },
         {
-          id:9,
-          nev:"Aaron Collins",
+          id: 9,
+          nev: "Aaron Collins",
           osztaly: "13d",
-          szakkorId: null
+          szakkorId: null,
         },
         {
-          id:10,
-          nev:"Patr1ck01",
+          id: 10,
+          nev: "Patr1ck01",
           osztaly: "14d",
-          szakkorId: null
+          szakkorId: null,
         },
         {
-          id:11,
-          nev:"Romain",
+          id: 11,
+          nev: "Romain",
           osztaly: "13d",
-          szakkorId: null
+          szakkorId: null,
         },
         {
-          id:12,
-          nev:"crypted",
+          id: 12,
+          nev: "crypted",
           osztaly: "13e",
-          szakkorId: null
+          szakkorId: null,
         },
         {
-          id:13,
-          nev:"skulleewag",
+          id: 13,
+          nev: "skulleewag",
           osztaly: "13e",
-          szakkorId: null
+          szakkorId: null,
         },
         {
-          id:14,
-          nev:"Kacper Jarzynski",
+          id: 14,
+          nev: "Kacper Jarzynski",
           osztaly: "13e",
-          szakkorId: null
+          szakkorId: null,
         },
         {
-          id:15,
-          nev:"huh_bokii",
+          id: 15,
+          nev: "huh_bokii",
           osztaly: "13a",
-          szakkorId: null
+          szakkorId: null,
         },
         {
-          id:16,
-          nev:"DimaNastart",
+          id: 16,
+          nev: "DimaNastart",
           osztaly: "13b",
-          szakkorId: null
+          szakkorId: null,
         },
-        
-      ]
-    }
-  }
-
-}
-
+      ],
+      szakkorok: [
+        {
+          id: 1,
+          nev: "Nem jár szakkörre",
+        },
+        {
+          id: 2,
+          nev: "Történelem",
+        },
+        {
+          id: 3,
+          nev: "Matematika",
+        },
+        {
+          id: 4,
+          nev: "Gamer",
+        },
+      ],
+    };
+  },
+};
 </script>
 
 
