@@ -1,43 +1,46 @@
 <template>
-  <h1 class="text-center">Szakkörök</h1>
-    
-  <div class="container container-fluid my-border">
-     
-  <div class="row">
-    <div class="col col-6">
-      <table class="table table-bordered border-success table-hover table-striped table-success">
-        <thead>
-          <tr>
-            <th>Név</th>
-            <th>Osztály</th>
-            <th>Szakkör</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="(tanulo, i) in tanulok" :key="i">
-            <td>{{ tanulo.nev }}</td>
-            <td>{{ tanulo.osztaly }}</td>
-            <td>
-              <select
-                class="form-select form-select-sm"
-                aria-label="Small select example"
-                v-model="tanulo.szakkorId"
-              >
-                <option disabled value="">Válassz szakkört</option>
-                <option v-for="(szakkor, ind) in szakkorok" :key="ind" :value="szakkor.id">
-                  {{ szakkor.nev }}
-                </option>
-              </select>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+  <h1 class="text-center my-4">Szakkörök kezelése</h1>
 
-    <div class="col col-6 mt-2">
-      <SzakkorKartya :szakkorok="szakkorok" :tanulok="tanulok" />
+  <div class="container my-border">
+    <div class="row">
+      <!-- Tanulók Táblázata -->
+      <div class="col-12 col-md-6 mb-4">
+        <div class="table-responsive">
+          <table class="table table-bordered border-success table-hover table-striped table-success shadow-sm">
+            <thead >
+              <tr>
+                <th>Név</th>
+                <th>Osztály</th>
+                <th>Szakkör</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="(tanulo, i) in tanulok" :key="i">
+                <td>{{ tanulo.nev }}</td>
+                <td>{{ tanulo.osztaly }}</td>
+                <td>
+                  <select
+                    class="form-select form-select-sm"
+                    aria-label="Small select example"
+                    v-model="tanulo.szakkorId"
+                  >
+                    <option disabled value="">Válassz szakkört</option>
+                    <option v-for="(szakkor, ind) in szakkorok" :key="ind" :value="szakkor.id">
+                      {{ szakkor.nev }}
+                    </option>
+                  </select>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Szakkör Kártyák -->
+      <div class="col-12 col-md-6 d-flex flex-column">
+        <SzakkorKartya :szakkorok="szakkorok" :tanulok="tanulok" />
+      </div>
     </div>
-  </div>
   </div>
 </template>
 
@@ -51,24 +54,24 @@ export default {
   data() {
     return {
       tanulok: [
-        { id: 1, nev: 'AVE', osztaly: '13d', szakkorId: 1 },
-        { id: 2, nev: 'Lexus_DC', osztaly: '13d', szakkorId: 4 },
-        { id: 3, nev: 'Farlix', osztaly: '13d', szakkorId: 2 },
-        { id: 4, nev: 'Amy', osztaly: '13d', szakkorId: 3 },
+        { id: 1, nev: 'AVE', osztaly: '13d', szakkorId: null },
+        { id: 2, nev: 'Lexus_DC', osztaly: '13d', szakkorId: null },
+        { id: 3, nev: 'Farlix', osztaly: '13d', szakkorId: null },
+        { id: 4, nev: 'Amy', osztaly: '13d', szakkorId: null },
         { id: 5, nev: 'ItzKat1', osztaly: '13d', szakkorId: null },
         { id: 6, nev: 'surix', osztaly: '13d', szakkorId: null },
-        { id: 7, nev: 'Begi', osztaly: '13d', szakkorId: 1 },
+        { id: 7, nev: 'Begi', osztaly: '13d', szakkorId: null },
         { id: 8, nev: 'SanielShadowX', osztaly: '13a', szakkorId: null },
         { id: 9, nev: 'Aaron Collins', osztaly: '13d', szakkorId: null },
         { id: 10, nev: 'Patr1ck01', osztaly: '14d', szakkorId: null },
-        { id: 11, nev: 'Romain', osztaly: '13d', szakkorId: 2 },
+        { id: 11, nev: 'Romain', osztaly: '13d', szakkorId: null },
         { id: 12, nev: 'crypted', osztaly: '13e', szakkorId: null },
         { id: 13, nev: 'skulleewag', osztaly: '13e', szakkorId: null },
         { id: 14, nev: 'Kacper Jarzynski', osztaly: '13e', szakkorId: 3 },
-        { id: 15, nev: 'huh_bokii', osztaly: '13a', szakkorId: 4 },
+        { id: 15, nev: 'huh_bokii', osztaly: '13a', szakkorId: null },
         { id: 16, nev: 'DimaNastart', osztaly: '13b', szakkorId: null },
         { id: 17, nev: 'JackusEditz', osztaly: '13c', szakkorId: null },
-        { id: 18, nev: 'shizaseen', osztaly: '13d', szakkorId: 1 },
+        { id: 18, nev: 'shizaseen', osztaly: '13d', szakkorId: null },
       ],
       szakkorok: [
         { id: 1, nev: 'Nem jár szakkörre' },
@@ -80,8 +83,6 @@ export default {
   },
 };
 </script>
-
-
 
 <style>
 .my-border {
@@ -95,18 +96,21 @@ export default {
   overflow: hidden;
 }
 
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+}
 
 .card {
   background-color: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   padding: 10px;
-  margin-bottom: 15px;
+  
 }
 
 .card-body {
   padding: 20px;
-  text-decoration: none;
 }
 
 h1 {
@@ -116,5 +120,21 @@ h1 {
   letter-spacing: 1.5px;
 }
 
-</style>
+@media (max-width: 768px) {
+  .my-border {
+    padding: 10px;
+  }
 
+  .table {
+    font-size: 0.9rem;
+  }
+
+  .card {
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+}
+</style>

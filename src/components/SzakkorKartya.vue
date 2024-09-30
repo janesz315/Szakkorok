@@ -1,5 +1,3 @@
-
-
 <template>
   <div>
     <div v-for="szakkor in szakkorok" :key="szakkor.id" class="card" style="width: auto; margin-bottom: 20px;">
