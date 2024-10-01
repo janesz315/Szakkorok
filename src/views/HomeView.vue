@@ -88,7 +88,7 @@ export default {
 
 <style>
 .my-border {
-  border: 4px groove blue;
+  border: 4px groove green;
   padding: 20px;
   background-color: #f9f9f9;
 }
