@@ -15,9 +15,11 @@
               </tr>
             </thead>
             <tbody>
+              <!-- A tanulók neve és osztályuk -->
               <tr v-for="(tanulo, i) in tanulok" :key="i">
                 <td>{{ tanulo.nev }}</td>
                 <td>{{ tanulo.osztaly }}</td>
+                <!-- szakkörök kiválasztása -->
                 <td>
                   <select
                     class="form-select form-select-sm"
