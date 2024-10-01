@@ -1,5 +1,5 @@
 <template>
-  <h1 class="text-center my-4">Szakkörök kezelése</h1>
+  <h1 class="text-center my-4">Szakkörök</h1>
 
   <div class="container my-border">
     <div class="row">

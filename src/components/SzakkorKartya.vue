@@ -3,7 +3,7 @@
     <div v-for="szakkor in szakkorok" :key="szakkor.id" class="card" style="width: auto; margin-bottom: 20px;">
       <div class="card-body">
         <!-- név és tagszám -->
-        <h5 class="card-title">{{ szakkor.nev }}: {{ countMembers(szakkor.id) }} tag</h5>
+        <h5 class="card-title">{{ szakkor.nev }}: {{ filteredTanulok(szakkor.id).length }} tag</h5>
         <p class="card-text">
           <!-- Ha 0 tag van -->
           <span v-if="filteredTanulok(szakkor.id).length === 0">Nincs tanuló ebben a szakkörben</span>
@@ -24,10 +24,6 @@ export default {
     tanulok: Array,
   },
   methods: {
-    // Számolja, hogy hány tanuló tartozik az adott szakkörhöz
-    countMembers(szakkorId) {
-      return this.tanulok.filter(tanulo => tanulo.szakkorId === szakkorId).length;
-    },
     // Szűri azokat a tanulókat, akik az adott szakkörhöz tartoznak
     filteredTanulok(szakkorId) {
       return this.tanulok.filter((tanulo) => tanulo.szakkorId === szakkorId).sort((a, b) => a.nev.localeCompare(b.nev));
